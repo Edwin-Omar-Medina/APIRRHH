@@ -8,5 +8,6 @@ namespace RRHH_Datos
 {
     public class Class1
     {
+        /*cLASE 1*/
     }
 }
