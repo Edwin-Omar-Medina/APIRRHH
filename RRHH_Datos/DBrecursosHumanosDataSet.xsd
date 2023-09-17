@@ -15,8 +15,8 @@
                     <CommandText>SELECT        empleado.primerNom, empleado.segundoNom, empleado.primerApellido, empleado.segundoApellido, empleado.fechaExpDoc, empleado.ciudadNac, empleado.fechaNac, empleado.nomEPS, empleado.nomPension, 
                          empleado.nomCesantias, empleado.nomcajaComp, empleado.fechaIngreso, empleado.estadoCivil, empleado.Cargo, empleado.jefeDirecto, empleado.sueldoBase, empleado.telefonoCel, tipoDoc.siglasTipoDoc, 
                          tipoContrato.descTipoContrato, areaTrabajo.nomArea, sede.ciudad, genero.descGenero, Formatos.fechaSolicitud, Formatos.numDocEmpleado, Formatos.tipoFormato, Formatos.tipoVacacionesoPermisos, Formatos.Remunerado, 
-                         Formatos.fechaI, Formatos.horaI, Formatos.fechaF, Formatos.horaF, Formatos.Motivo, Formatos.fechaAdicion_I, Formatos.horaAdicion_I, Formatos.fechaAdicion_F, Formatos.horaAdicion_F, Formatos.tipoCertificado, 
-                         Formatos.id_Formatos, tipoDoc.descTipoDoc, tipoContrato.tiempoContrato, sede.direccion
+                         Formatos.fechaI, Formatos.horaI, Formatos.fechaF, Formatos.horaF, Formatos.Motivo, Formatos.fechaAdicion_I, Formatos.horaAdicion_I, Formatos.fechaAdicion_F, Formatos.horaAdicion_F, Formatos.id_Formatos, 
+                         tipoDoc.descTipoDoc, tipoContrato.tiempoContrato, sede.direccion, Formatos.tipoCertificado
 FROM            empleado INNER JOIN
                          areaTrabajo ON empleado.idAreaTrabajo = areaTrabajo.idAreaTrabajo INNER JOIN
                          genero ON empleado.idGenero = genero.idGenero INNER JOIN
@@ -82,7 +82,7 @@ FROM            empleado INNER JOIN
   <xs:element name="DBrecursosHumanosDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DBrecursosHumanosDataSet" msprop:Generator_UserDSName="DBrecursosHumanosDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="empleado" msprop:Generator_TableClassName="empleadoDataTable" msprop:Generator_TableVarName="tableempleado" msprop:Generator_RowChangedName="empleadoRowChanged" msprop:Generator_TablePropName="empleado" msprop:Generator_RowDeletingName="empleadoRowDeleting" msprop:Generator_RowChangingName="empleadoRowChanging" msprop:Generator_RowEvHandlerName="empleadoRowChangeEventHandler" msprop:Generator_RowDeletedName="empleadoRowDeleted" msprop:Generator_RowClassName="empleadoRow" msprop:Generator_UserTableName="empleado" msprop:Generator_RowEvArgName="empleadoRowChangeEvent">
+        <xs:element name="empleado" msprop:Generator_TableClassName="empleadoDataTable" msprop:Generator_TableVarName="tableempleado" msprop:Generator_TablePropName="empleado" msprop:Generator_RowDeletingName="empleadoRowDeleting" msprop:Generator_RowChangingName="empleadoRowChanging" msprop:Generator_RowEvHandlerName="empleadoRowChangeEventHandler" msprop:Generator_RowDeletedName="empleadoRowDeleted" msprop:Generator_UserTableName="empleado" msprop:Generator_RowChangedName="empleadoRowChanged" msprop:Generator_RowEvArgName="empleadoRowChangeEvent" msprop:Generator_RowClassName="empleadoRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="primerNom" msprop:Generator_ColumnVarNameInTable="columnprimerNom" msprop:Generator_ColumnPropNameInRow="primerNom" msprop:Generator_ColumnPropNameInTable="primerNomColumn" msprop:Generator_UserColumnName="primerNom" minOccurs="0">

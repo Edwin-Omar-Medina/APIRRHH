@@ -2531,8 +2531,8 @@ namespace RRHH_Datos.DBrecursosHumanosDataSetTableAdapters {
                 ", Formatos.Remunerado, \r\n                         Formatos.fechaI, Formatos.hora" +
                 "I, Formatos.fechaF, Formatos.horaF, Formatos.Motivo, Formatos.fechaAdicion_I, Fo" +
                 "rmatos.horaAdicion_I, Formatos.fechaAdicion_F, Formatos.horaAdicion_F, Formatos." +
-                "tipoCertificado, \r\n                         Formatos.id_Formatos, tipoDoc.descTi" +
-                "poDoc, tipoContrato.tiempoContrato, sede.direccion\r\nFROM            empleado INN" +
+                "id_Formatos, \r\n                         tipoDoc.descTipoDoc, tipoContrato.tiempo" +
+                "Contrato, sede.direccion, Formatos.tipoCertificado\r\nFROM            empleado INN" +
                 "ER JOIN\r\n                         areaTrabajo ON empleado.idAreaTrabajo = areaTr" +
                 "abajo.idAreaTrabajo INNER JOIN\r\n                         genero ON empleado.idGe" +
                 "nero = genero.idGenero INNER JOIN\r\n                         sede ON empleado.idS" +
