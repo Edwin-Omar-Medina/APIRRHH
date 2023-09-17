@@ -58,14 +58,14 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="REPORTES\FormatoPermisos.cs">
-      <DependentUpon>FormatoPermisos.rpt</DependentUpon>
+    <Compile Include="REPORTES\FormatoCompensatorios.cs">
+      <DependentUpon>FormatoCompensatorios.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="REPORTES\FormatoCompensatorios.cs">
-      <DependentUpon>FormatoCompensatorios.rpt</DependentUpon>
+    <Compile Include="REPORTES\FormatoPermisos.cs">
+      <DependentUpon>FormatoPermisos.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
@@ -93,13 +93,13 @@
     <Folder Include="Formulario\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="REPORTES\FormatoPermisos.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>FormatoPermisos.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="REPORTES\FormatoCompensatorios.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>FormatoCompensatorios.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="REPORTES\FormatoPermisos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>FormatoPermisos.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
