@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Clases\Class1.cs" />
     <Compile Include="DBrecursosHumanosDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -66,6 +66,12 @@
     </Compile>
     <Compile Include="REPORTES\FormatoCertificados.cs">
       <DependentUpon>FormatoCertificados.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="REPORTES\FormatoVacaciones.cs">
+      <DependentUpon>FormatoVacaciones.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
@@ -106,6 +112,10 @@
     <EmbeddedResource Include="REPORTES\FormatoCertificados.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>FormatoCertificados.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="REPORTES\FormatoVacaciones.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>FormatoVacaciones.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="REPORTES\FormatoPermisos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
