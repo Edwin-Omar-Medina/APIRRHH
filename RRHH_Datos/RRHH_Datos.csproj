@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Class1.cs" />
-    <Compile Include="DBrecursosHumanosDataSet.Designer.cs">
+    <Compile Include="DataSet\DBrecursosHumanosDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DBrecursosHumanosDataSet.xsd</DependentUpon>
@@ -85,15 +85,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="DBrecursosHumanosDataSet.xsc">
+    <None Include="DataSet\DBrecursosHumanosDataSet.xsc">
       <DependentUpon>DBrecursosHumanosDataSet.xsd</DependentUpon>
     </None>
-    <None Include="DBrecursosHumanosDataSet.xsd">
+    <None Include="DataSet\DBrecursosHumanosDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DBrecursosHumanosDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DBrecursosHumanosDataSet.xss">
+    <None Include="DataSet\DBrecursosHumanosDataSet.xss">
       <DependentUpon>DBrecursosHumanosDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
