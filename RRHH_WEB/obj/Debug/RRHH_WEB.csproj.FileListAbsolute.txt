@@ -1,0 +1,2 @@
+D:\ProyectosSourcetree\APIRRHH\RRHH_WEB\obj\Debug\RRHH_WEB.csproj.AssemblyReference.cache
+D:\ProyectosSourcetree\APIRRHH\RRHH_WEB\obj\Debug\RRHH_WEB.csproj.CoreCompileInputs.cache

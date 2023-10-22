@@ -11,11 +11,10 @@ namespace RRHH_Datos
     {
         /*cLASE 1*/
 
-        public string getReporte(string fechaSolicitud, int numDocEmpleado, int tipoFormato, string tipoVacacionesoPermisos, int Remunerado, string fechaI, string horaI, string fechaF, string horaF, string Motivo, string fechaAdicion_I, string horaAdicion_I, string fechaAdicion_F, string horaAdicion_F, string tipoCertificado) {
+        public static string rpt_Formatos(string fechaSolicitud, int numDocEmpleado, int tipoFormato, string tipoVacacionesoPermisos, int Remunerado, string fechaI, string horaI, string fechaF, string horaF, string Motivo, string fechaAdicion_I, string horaAdicion_I, string fechaAdicion_F, string horaAdicion_F, string tipoCertificado) {
 
             try
             {
-
 
                 DataSet.DBrecursosHumanosDataSet data = new DataSet.DBrecursosHumanosDataSet();
                 DataSet.DBrecursosHumanosDataSetTableAdapters.empleadoTableAdapter ad = new DataSet.DBrecursosHumanosDataSetTableAdapters.empleadoTableAdapter();
@@ -86,5 +85,6 @@ namespace RRHH_Datos
             }
             
         }
+        
     }
 }
