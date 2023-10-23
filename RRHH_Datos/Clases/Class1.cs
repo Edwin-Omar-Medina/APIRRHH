@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RRHH_Datos
+namespace RRHH_Datos.Clases
 {
     public class Class1
     {
