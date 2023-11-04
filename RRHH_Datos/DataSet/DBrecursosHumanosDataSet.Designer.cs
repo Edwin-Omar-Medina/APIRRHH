@@ -351,8 +351,6 @@ namespace RRHH_Datos.DataSet {
             
             private global::System.Data.DataColumn columnhoraAdicion_F;
             
-            private global::System.Data.DataColumn columntipoCertificado;
-            
             private global::System.Data.DataColumn columnid_Formatos;
             
             private global::System.Data.DataColumn columndescTipoDoc;
@@ -360,6 +358,8 @@ namespace RRHH_Datos.DataSet {
             private global::System.Data.DataColumn columntiempoContrato;
             
             private global::System.Data.DataColumn columndireccion;
+            
+            private global::System.Data.DataColumn columntipoCertificado;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -684,14 +684,6 @@ namespace RRHH_Datos.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn tipoCertificadoColumn {
-                get {
-                    return this.columntipoCertificado;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn id_FormatosColumn {
                 get {
                     return this.columnid_Formatos;
@@ -719,6 +711,14 @@ namespace RRHH_Datos.DataSet {
             public global::System.Data.DataColumn direccionColumn {
                 get {
                     return this.columndireccion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn tipoCertificadoColumn {
+                get {
+                    return this.columntipoCertificado;
                 }
             }
             
@@ -782,24 +782,24 @@ namespace RRHH_Datos.DataSet {
                         string nomArea, 
                         string ciudad, 
                         string descGenero, 
-                        System.DateTime fechaSolicitud, 
+                        string fechaSolicitud, 
                         int numDocEmpleado, 
                         int tipoFormato, 
                         string tipoVacacionesoPermisos, 
                         int Remunerado, 
-                        System.DateTime fechaI, 
-                        System.TimeSpan horaI, 
-                        System.DateTime fechaF, 
-                        System.TimeSpan horaF, 
+                        string fechaI, 
+                        string horaI, 
+                        string fechaF, 
+                        string horaF, 
                         string Motivo, 
-                        System.DateTime fechaAdicion_I, 
-                        System.TimeSpan horaAdicion_I, 
-                        System.DateTime fechaAdicion_F, 
-                        System.TimeSpan horaAdicion_F, 
-                        string tipoCertificado, 
+                        string fechaAdicion_I, 
+                        string horaAdicion_I, 
+                        string fechaAdicion_F, 
+                        string horaAdicion_F, 
                         string descTipoDoc, 
                         int tiempoContrato, 
-                        string direccion) {
+                        string direccion, 
+                        string tipoCertificado) {
                 empleadoRow rowempleadoRow = ((empleadoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         primerNom,
@@ -838,11 +838,11 @@ namespace RRHH_Datos.DataSet {
                         horaAdicion_I,
                         fechaAdicion_F,
                         horaAdicion_F,
-                        tipoCertificado,
                         null,
                         descTipoDoc,
                         tiempoContrato,
-                        direccion};
+                        direccion,
+                        tipoCertificado};
                 rowempleadoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowempleadoRow);
                 return rowempleadoRow;
@@ -908,11 +908,11 @@ namespace RRHH_Datos.DataSet {
                 this.columnhoraAdicion_I = base.Columns["horaAdicion_I"];
                 this.columnfechaAdicion_F = base.Columns["fechaAdicion_F"];
                 this.columnhoraAdicion_F = base.Columns["horaAdicion_F"];
-                this.columntipoCertificado = base.Columns["tipoCertificado"];
                 this.columnid_Formatos = base.Columns["id_Formatos"];
                 this.columndescTipoDoc = base.Columns["descTipoDoc"];
                 this.columntiempoContrato = base.Columns["tiempoContrato"];
                 this.columndireccion = base.Columns["direccion"];
+                this.columntipoCertificado = base.Columns["tipoCertificado"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -962,7 +962,7 @@ namespace RRHH_Datos.DataSet {
                 base.Columns.Add(this.columnciudad);
                 this.columndescGenero = new global::System.Data.DataColumn("descGenero", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndescGenero);
-                this.columnfechaSolicitud = new global::System.Data.DataColumn("fechaSolicitud", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columnfechaSolicitud = new global::System.Data.DataColumn("fechaSolicitud", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfechaSolicitud);
                 this.columnnumDocEmpleado = new global::System.Data.DataColumn("numDocEmpleado", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnumDocEmpleado);
@@ -972,26 +972,24 @@ namespace RRHH_Datos.DataSet {
                 base.Columns.Add(this.columntipoVacacionesoPermisos);
                 this.columnRemunerado = new global::System.Data.DataColumn("Remunerado", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRemunerado);
-                this.columnfechaI = new global::System.Data.DataColumn("fechaI", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columnfechaI = new global::System.Data.DataColumn("fechaI", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfechaI);
-                this.columnhoraI = new global::System.Data.DataColumn("horaI", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
+                this.columnhoraI = new global::System.Data.DataColumn("horaI", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnhoraI);
-                this.columnfechaF = new global::System.Data.DataColumn("fechaF", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columnfechaF = new global::System.Data.DataColumn("fechaF", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfechaF);
-                this.columnhoraF = new global::System.Data.DataColumn("horaF", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
+                this.columnhoraF = new global::System.Data.DataColumn("horaF", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnhoraF);
                 this.columnMotivo = new global::System.Data.DataColumn("Motivo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMotivo);
-                this.columnfechaAdicion_I = new global::System.Data.DataColumn("fechaAdicion_I", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columnfechaAdicion_I = new global::System.Data.DataColumn("fechaAdicion_I", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfechaAdicion_I);
-                this.columnhoraAdicion_I = new global::System.Data.DataColumn("horaAdicion_I", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
+                this.columnhoraAdicion_I = new global::System.Data.DataColumn("horaAdicion_I", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnhoraAdicion_I);
-                this.columnfechaAdicion_F = new global::System.Data.DataColumn("fechaAdicion_F", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columnfechaAdicion_F = new global::System.Data.DataColumn("fechaAdicion_F", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfechaAdicion_F);
-                this.columnhoraAdicion_F = new global::System.Data.DataColumn("horaAdicion_F", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
+                this.columnhoraAdicion_F = new global::System.Data.DataColumn("horaAdicion_F", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnhoraAdicion_F);
-                this.columntipoCertificado = new global::System.Data.DataColumn("tipoCertificado", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntipoCertificado);
                 this.columnid_Formatos = new global::System.Data.DataColumn("id_Formatos", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_Formatos);
                 this.columndescTipoDoc = new global::System.Data.DataColumn("descTipoDoc", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1000,6 +998,8 @@ namespace RRHH_Datos.DataSet {
                 base.Columns.Add(this.columntiempoContrato);
                 this.columndireccion = new global::System.Data.DataColumn("direccion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndireccion);
+                this.columntipoCertificado = new global::System.Data.DataColumn("tipoCertificado", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntipoCertificado);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid_Formatos}, true));
                 this.columnprimerNom.MaxLength = 50;
@@ -1020,9 +1020,17 @@ namespace RRHH_Datos.DataSet {
                 this.columnnomArea.MaxLength = 100;
                 this.columnciudad.MaxLength = 30;
                 this.columndescGenero.MaxLength = 35;
+                this.columnfechaSolicitud.MaxLength = 20;
                 this.columntipoVacacionesoPermisos.MaxLength = 30;
+                this.columnfechaI.MaxLength = 20;
+                this.columnhoraI.MaxLength = 20;
+                this.columnfechaF.MaxLength = 20;
+                this.columnhoraF.MaxLength = 20;
                 this.columnMotivo.MaxLength = 500;
-                this.columntipoCertificado.MaxLength = 80;
+                this.columnfechaAdicion_I.MaxLength = 20;
+                this.columnhoraAdicion_I.MaxLength = 20;
+                this.columnfechaAdicion_F.MaxLength = 20;
+                this.columnhoraAdicion_F.MaxLength = 20;
                 this.columnid_Formatos.AutoIncrement = true;
                 this.columnid_Formatos.AutoIncrementSeed = -1;
                 this.columnid_Formatos.AutoIncrementStep = -1;
@@ -1031,6 +1039,7 @@ namespace RRHH_Datos.DataSet {
                 this.columnid_Formatos.Unique = true;
                 this.columndescTipoDoc.MaxLength = 30;
                 this.columndireccion.MaxLength = 25;
+                this.columntipoCertificado.MaxLength = 80;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1525,10 +1534,10 @@ namespace RRHH_Datos.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime fechaSolicitud {
+            public string fechaSolicitud {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableempleado.fechaSolicitudColumn]));
+                        return ((string)(this[this.tableempleado.fechaSolicitudColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'fechaSolicitud\' de la tabla \'empleado\' es DBNull.", e);
@@ -1606,10 +1615,10 @@ namespace RRHH_Datos.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime fechaI {
+            public string fechaI {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableempleado.fechaIColumn]));
+                        return ((string)(this[this.tableempleado.fechaIColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'fechaI\' de la tabla \'empleado\' es DBNull.", e);
@@ -1622,10 +1631,10 @@ namespace RRHH_Datos.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.TimeSpan horaI {
+            public string horaI {
                 get {
                     try {
-                        return ((global::System.TimeSpan)(this[this.tableempleado.horaIColumn]));
+                        return ((string)(this[this.tableempleado.horaIColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'horaI\' de la tabla \'empleado\' es DBNull.", e);
@@ -1638,10 +1647,10 @@ namespace RRHH_Datos.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime fechaF {
+            public string fechaF {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableempleado.fechaFColumn]));
+                        return ((string)(this[this.tableempleado.fechaFColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'fechaF\' de la tabla \'empleado\' es DBNull.", e);
@@ -1654,10 +1663,10 @@ namespace RRHH_Datos.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.TimeSpan horaF {
+            public string horaF {
                 get {
                     try {
-                        return ((global::System.TimeSpan)(this[this.tableempleado.horaFColumn]));
+                        return ((string)(this[this.tableempleado.horaFColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'horaF\' de la tabla \'empleado\' es DBNull.", e);
@@ -1686,10 +1695,10 @@ namespace RRHH_Datos.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime fechaAdicion_I {
+            public string fechaAdicion_I {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableempleado.fechaAdicion_IColumn]));
+                        return ((string)(this[this.tableempleado.fechaAdicion_IColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'fechaAdicion_I\' de la tabla \'empleado\' es DBNull.", e);
@@ -1702,10 +1711,10 @@ namespace RRHH_Datos.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.TimeSpan horaAdicion_I {
+            public string horaAdicion_I {
                 get {
                     try {
-                        return ((global::System.TimeSpan)(this[this.tableempleado.horaAdicion_IColumn]));
+                        return ((string)(this[this.tableempleado.horaAdicion_IColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'horaAdicion_I\' de la tabla \'empleado\' es DBNull.", e);
@@ -1718,10 +1727,10 @@ namespace RRHH_Datos.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime fechaAdicion_F {
+            public string fechaAdicion_F {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableempleado.fechaAdicion_FColumn]));
+                        return ((string)(this[this.tableempleado.fechaAdicion_FColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'fechaAdicion_F\' de la tabla \'empleado\' es DBNull.", e);
@@ -1734,10 +1743,10 @@ namespace RRHH_Datos.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.TimeSpan horaAdicion_F {
+            public string horaAdicion_F {
                 get {
                     try {
-                        return ((global::System.TimeSpan)(this[this.tableempleado.horaAdicion_FColumn]));
+                        return ((string)(this[this.tableempleado.horaAdicion_FColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'horaAdicion_F\' de la tabla \'empleado\' es DBNull.", e);
@@ -1745,22 +1754,6 @@ namespace RRHH_Datos.DataSet {
                 }
                 set {
                     this[this.tableempleado.horaAdicion_FColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string tipoCertificado {
-                get {
-                    try {
-                        return ((string)(this[this.tableempleado.tipoCertificadoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'tipoCertificado\' de la tabla \'empleado\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableempleado.tipoCertificadoColumn] = value;
                 }
             }
             
@@ -1820,6 +1813,22 @@ namespace RRHH_Datos.DataSet {
                 }
                 set {
                     this[this.tableempleado.direccionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string tipoCertificado {
+                get {
+                    try {
+                        return ((string)(this[this.tableempleado.tipoCertificadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'tipoCertificado\' de la tabla \'empleado\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableempleado.tipoCertificadoColumn] = value;
                 }
             }
             
@@ -2257,18 +2266,6 @@ namespace RRHH_Datos.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IstipoCertificadoNull() {
-                return this.IsNull(this.tableempleado.tipoCertificadoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SettipoCertificadoNull() {
-                this[this.tableempleado.tipoCertificadoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsdescTipoDocNull() {
                 return this.IsNull(this.tableempleado.descTipoDocColumn);
             }
@@ -2301,6 +2298,18 @@ namespace RRHH_Datos.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetdireccionNull() {
                 this[this.tableempleado.direccionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IstipoCertificadoNull() {
+                return this.IsNull(this.tableempleado.tipoCertificadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SettipoCertificadoNull() {
+                this[this.tableempleado.tipoCertificadoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2499,11 +2508,11 @@ namespace RRHH_Datos.DataSet.DBrecursosHumanosDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("horaAdicion_I", "horaAdicion_I");
             tableMapping.ColumnMappings.Add("fechaAdicion_F", "fechaAdicion_F");
             tableMapping.ColumnMappings.Add("horaAdicion_F", "horaAdicion_F");
-            tableMapping.ColumnMappings.Add("tipoCertificado", "tipoCertificado");
             tableMapping.ColumnMappings.Add("id_Formatos", "id_Formatos");
             tableMapping.ColumnMappings.Add("descTipoDoc", "descTipoDoc");
             tableMapping.ColumnMappings.Add("tiempoContrato", "tiempoContrato");
             tableMapping.ColumnMappings.Add("direccion", "direccion");
+            tableMapping.ColumnMappings.Add("tipoCertificado", "tipoCertificado");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -2549,23 +2558,31 @@ namespace RRHH_Datos.DataSet.DBrecursosHumanosDataSetTableAdapters {
                 "nomCesantias, empleado.nomcajaComp, empleado.fechaIngreso, empleado.estadoCivil," +
                 " empleado.Cargo, empleado.jefeDirecto, empleado.sueldoBase, empleado.telefonoCel" +
                 ", tipoDoc.siglasTipoDoc, \r\n                         tipoContrato.descTipoContrat" +
-                "o, areaTrabajo.nomArea, sede.ciudad, genero.descGenero, Formatos.fechaSolicitud," +
-                " Formatos.numDocEmpleado, Formatos.tipoFormato, Formatos.tipoVacacionesoPermisos" +
-                ", Formatos.Remunerado, \r\n                         Formatos.fechaI, Formatos.hora" +
-                "I, Formatos.fechaF, Formatos.horaF, Formatos.Motivo, Formatos.fechaAdicion_I, Fo" +
-                "rmatos.horaAdicion_I, Formatos.fechaAdicion_F, Formatos.horaAdicion_F, Formatos." +
-                "id_Formatos, \r\n                         tipoDoc.descTipoDoc, tipoContrato.tiempo" +
-                "Contrato, sede.direccion, Formatos.tipoCertificado\r\nFROM            empleado INN" +
-                "ER JOIN\r\n                         areaTrabajo ON empleado.idAreaTrabajo = areaTr" +
-                "abajo.idAreaTrabajo INNER JOIN\r\n                         genero ON empleado.idGe" +
-                "nero = genero.idGenero INNER JOIN\r\n                         sede ON empleado.idS" +
-                "ede = sede.idSede INNER JOIN\r\n                         tipoContrato ON empleado." +
-                "idtipoContrato = tipoContrato.idTipoContrato INNER JOIN\r\n                       " +
-                "  tipoDoc ON empleado.idTipoDoc = tipoDoc.idTipoDoc INNER JOIN\r\n                " +
-                "         Formatos ON empleado.numDoc = Formatos.numDocEmpleado\r\nWHERE        (Fo" +
-                "rmatos.id_Formatos = @idSolicitud)";
+                "o, areaTrabajo.nomArea, sede.ciudad, genero.descGenero, Formatos.fechaSolicitud " +
+                "AS Expr1, Formatos.numDocEmpleado AS Expr2, Formatos.tipoFormato AS Expr3, \r\n   " +
+                "                      Formatos.tipoVacacionesoPermisos AS Expr4, Formatos.Remune" +
+                "rado AS Expr5, Formatos.fechaI AS Expr6, Formatos.horaI AS Expr7, Formatos.fecha" +
+                "F AS Expr8, Formatos.horaF AS Expr9, Formatos.Motivo AS Expr10, \r\n              " +
+                "           Formatos.fechaAdicion_I AS Expr11, Formatos.horaAdicion_I AS Expr12, " +
+                "Formatos.fechaAdicion_F AS Expr13, Formatos.horaAdicion_F AS Expr14, Formatos.id" +
+                "_Formatos AS Expr15, tipoDoc.descTipoDoc, \r\n                         tipoContrat" +
+                "o.tiempoContrato, sede.direccion, Formatos.tipoCertificado AS Expr16, empleado.i" +
+                "dTipoDoc, Formatos.id_Formatos, Formatos.fechaSolicitud, Formatos.numDocEmpleado" +
+                ", Formatos.tipoFormato, \r\n                         Formatos.tipoVacacionesoPermi" +
+                "sos, Formatos.Remunerado, Formatos.fechaI, Formatos.horaI, Formatos.fechaF, Form" +
+                "atos.horaF, Formatos.Motivo, Formatos.fechaAdicion_I, Formatos.horaAdicion_I, Fo" +
+                "rmatos.fechaAdicion_F, \r\n                         Formatos.horaAdicion_F, Format" +
+                "os.tipoCertificado\r\nFROM            empleado INNER JOIN\r\n                       " +
+                "  areaTrabajo ON empleado.idAreaTrabajo = areaTrabajo.idAreaTrabajo INNER JOIN\r\n" +
+                "                         genero ON empleado.idGenero = genero.idGenero INNER JOI" +
+                "N\r\n                         sede ON empleado.idSede = sede.idSede INNER JOIN\r\n  " +
+                "                       tipoContrato ON empleado.idtipoContrato = tipoContrato.id" +
+                "TipoContrato INNER JOIN\r\n                         tipoDoc ON empleado.idTipoDoc " +
+                "= tipoDoc.idTipoDoc INNER JOIN\r\n                         Formatos ON empleado.nu" +
+                "mDoc = Formatos.numDocEmpleado\r\nWHERE        (Formatos.id_Formatos = @idSolicitu" +
+                "d)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idSolicitud", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_Formatos", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idSolicitud", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Expr15", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "SELECT        MAX(id_Formatos) AS MaxIdFormatos\r\nFROM            Formatos";
@@ -2576,20 +2593,20 @@ namespace RRHH_Datos.DataSet.DBrecursosHumanosDataSetTableAdapters {
                          (fechaSolicitud, numDocEmpleado, tipoFormato, tipoVacacionesoPermisos, Remunerado, fechaI, horaI, fechaF, horaF, Motivo, fechaAdicion_I, horaAdicion_I, fechaAdicion_F, horaAdicion_F, tipoCertificado)
 VALUES        (@fechaSolicitud,@numDocEmpleado,@tipoFormato,@tipoVacacionesoPermisos,@Remunerado,@fechaI,@horaI,@fechaF,@horaF,@Motivo,@fechaAdicion_I,@horaAdicion_I,@fechaAdicion_F,@horaAdicion_F,@tipoCertificado)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaSolicitud", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "fechaSolicitud", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaSolicitud", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "fechaSolicitud", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@numDocEmpleado", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "numDocEmpleado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tipoFormato", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "tipoFormato", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tipoVacacionesoPermisos", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "tipoVacacionesoPermisos", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Remunerado", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Remunerado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaI", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "fechaI", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horaI", global::System.Data.SqlDbType.Time, 5, global::System.Data.ParameterDirection.Input, 0, 0, "horaI", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaF", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "fechaF", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horaF", global::System.Data.SqlDbType.Time, 5, global::System.Data.ParameterDirection.Input, 0, 0, "horaF", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaI", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "fechaI", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horaI", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "horaI", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaF", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "fechaF", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horaF", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "horaF", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Motivo", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Motivo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaAdicion_I", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "fechaAdicion_I", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horaAdicion_I", global::System.Data.SqlDbType.Time, 5, global::System.Data.ParameterDirection.Input, 0, 0, "horaAdicion_I", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaAdicion_F", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "fechaAdicion_F", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horaAdicion_F", global::System.Data.SqlDbType.Time, 5, global::System.Data.ParameterDirection.Input, 0, 0, "horaAdicion_F", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaAdicion_I", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "fechaAdicion_I", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horaAdicion_I", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "horaAdicion_I", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaAdicion_F", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "fechaAdicion_F", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@horaAdicion_F", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "horaAdicion_F", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tipoCertificado", global::System.Data.SqlDbType.VarChar, 80, global::System.Data.ParameterDirection.Input, 0, 0, "tipoCertificado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -2646,25 +2663,29 @@ VALUES        (@fechaSolicitud,@numDocEmpleado,@tipoFormato,@tipoVacacionesoPerm
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByMaxID(DBrecursosHumanosDataSet.empleadoDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
+        public virtual object FillByMaxID() {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
             }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual DBrecursosHumanosDataSet.empleadoDataTable GetDataByMaxID() {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            DBrecursosHumanosDataSet.empleadoDataTable dataTable = new DBrecursosHumanosDataSet.empleadoDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

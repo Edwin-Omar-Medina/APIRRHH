@@ -9,7 +9,7 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="empleadoTableAdapter" GeneratorDataComponentClassName="empleadoTableAdapter" Name="empleado" UserDataComponentName="empleadoTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DBRRHH (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="DBRRHH (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        empleado.primerNom, empleado.segundoNom, empleado.primerApellido, empleado.segundoApellido, empleado.fechaExpDoc, empleado.ciudadNac, empleado.fechaNac, empleado.nomEPS, empleado.nomPension, 
@@ -66,11 +66,11 @@ FROM            empleado INNER JOIN
               <Mapping SourceColumn="horaAdicion_I" DataSetColumn="horaAdicion_I" />
               <Mapping SourceColumn="fechaAdicion_F" DataSetColumn="fechaAdicion_F" />
               <Mapping SourceColumn="horaAdicion_F" DataSetColumn="horaAdicion_F" />
-              <Mapping SourceColumn="tipoCertificado" DataSetColumn="tipoCertificado" />
               <Mapping SourceColumn="id_Formatos" DataSetColumn="id_Formatos" />
               <Mapping SourceColumn="descTipoDoc" DataSetColumn="descTipoDoc" />
               <Mapping SourceColumn="tiempoContrato" DataSetColumn="tiempoContrato" />
               <Mapping SourceColumn="direccion" DataSetColumn="direccion" />
+              <Mapping SourceColumn="tipoCertificado" DataSetColumn="tipoCertificado" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="DBRRHH (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByFormatos" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByFormatos" GeneratorSourceName="FillByFormatos" GetMethodModifier="Public" GetMethodName="GetDataByFormatos" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByFormatos" UserSourceName="FillByFormatos">
@@ -78,9 +78,12 @@ FROM            empleado INNER JOIN
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        empleado.primerNom, empleado.segundoNom, empleado.primerApellido, empleado.segundoApellido, empleado.fechaExpDoc, empleado.ciudadNac, empleado.fechaNac, empleado.nomEPS, empleado.nomPension, 
                          empleado.nomCesantias, empleado.nomcajaComp, empleado.fechaIngreso, empleado.estadoCivil, empleado.Cargo, empleado.jefeDirecto, empleado.sueldoBase, empleado.telefonoCel, tipoDoc.siglasTipoDoc, 
-                         tipoContrato.descTipoContrato, areaTrabajo.nomArea, sede.ciudad, genero.descGenero, Formatos.fechaSolicitud, Formatos.numDocEmpleado, Formatos.tipoFormato, Formatos.tipoVacacionesoPermisos, Formatos.Remunerado, 
-                         Formatos.fechaI, Formatos.horaI, Formatos.fechaF, Formatos.horaF, Formatos.Motivo, Formatos.fechaAdicion_I, Formatos.horaAdicion_I, Formatos.fechaAdicion_F, Formatos.horaAdicion_F, Formatos.id_Formatos, 
-                         tipoDoc.descTipoDoc, tipoContrato.tiempoContrato, sede.direccion, Formatos.tipoCertificado
+                         tipoContrato.descTipoContrato, areaTrabajo.nomArea, sede.ciudad, genero.descGenero, Formatos.fechaSolicitud AS Expr1, Formatos.numDocEmpleado AS Expr2, Formatos.tipoFormato AS Expr3, 
+                         Formatos.tipoVacacionesoPermisos AS Expr4, Formatos.Remunerado AS Expr5, Formatos.fechaI AS Expr6, Formatos.horaI AS Expr7, Formatos.fechaF AS Expr8, Formatos.horaF AS Expr9, Formatos.Motivo AS Expr10, 
+                         Formatos.fechaAdicion_I AS Expr11, Formatos.horaAdicion_I AS Expr12, Formatos.fechaAdicion_F AS Expr13, Formatos.horaAdicion_F AS Expr14, Formatos.id_Formatos AS Expr15, tipoDoc.descTipoDoc, 
+                         tipoContrato.tiempoContrato, sede.direccion, Formatos.tipoCertificado AS Expr16, empleado.idTipoDoc, Formatos.id_Formatos, Formatos.fechaSolicitud, Formatos.numDocEmpleado, Formatos.tipoFormato, 
+                         Formatos.tipoVacacionesoPermisos, Formatos.Remunerado, Formatos.fechaI, Formatos.horaI, Formatos.fechaF, Formatos.horaF, Formatos.Motivo, Formatos.fechaAdicion_I, Formatos.horaAdicion_I, Formatos.fechaAdicion_F, 
+                         Formatos.horaAdicion_F, Formatos.tipoCertificado
 FROM            empleado INNER JOIN
                          areaTrabajo ON empleado.idAreaTrabajo = areaTrabajo.idAreaTrabajo INNER JOIN
                          genero ON empleado.idGenero = genero.idGenero INNER JOIN
@@ -90,12 +93,12 @@ FROM            empleado INNER JOIN
                          Formatos ON empleado.numDoc = Formatos.numDocEmpleado
 WHERE        (Formatos.id_Formatos = @idSolicitud)</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="idSolicitud" ColumnName="id_Formatos" DataSourceName="DBrecursosHumanos.dbo.Formatos" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idSolicitud" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id_Formatos" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="idSolicitud" ColumnName="id_Formatos" DataSourceName="DBrecursosHumanos.dbo.Formatos" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idSolicitud" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Expr15" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DBRRHH (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByMaxID" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByMaxID" GeneratorSourceName="FillByMaxID" GetMethodModifier="Public" GetMethodName="GetDataByMaxID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByMaxID" UserSourceName="FillByMaxID">
+              <DbSource ConnectionRef="DBRRHH (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByMaxID" GeneratorSourceName="FillByMaxID" Modifier="Public" Name="FillByMaxID" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByMaxID" UserSourceName="FillByMaxID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        MAX(id_Formatos) AS MaxIdFormatos
@@ -111,20 +114,20 @@ FROM            Formatos</CommandText>
                          (fechaSolicitud, numDocEmpleado, tipoFormato, tipoVacacionesoPermisos, Remunerado, fechaI, horaI, fechaF, horaF, Motivo, fechaAdicion_I, horaAdicion_I, fechaAdicion_F, horaAdicion_F, tipoCertificado)
 VALUES        (@fechaSolicitud,@numDocEmpleado,@tipoFormato,@tipoVacacionesoPermisos,@Remunerado,@fechaI,@horaI,@fechaF,@horaF,@Motivo,@fechaAdicion_I,@horaAdicion_I,@fechaAdicion_F,@horaAdicion_F,@tipoCertificado)</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="fechaSolicitud" ColumnName="fechaSolicitud" DataSourceName="DBrecursosHumanos.dbo.Formatos" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@fechaSolicitud" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="fechaSolicitud" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="fechaSolicitud" ColumnName="fechaSolicitud" DataSourceName="DBrecursosHumanos.dbo.Formatos" DataTypeServer="varchar(20)" DbType="AnsiString" Direction="Input" ParameterName="@fechaSolicitud" Precision="0" ProviderType="VarChar" Scale="0" Size="20" SourceColumn="fechaSolicitud" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="numDocEmpleado" ColumnName="numDocEmpleado" DataSourceName="DBrecursosHumanos.dbo.Formatos" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@numDocEmpleado" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="numDocEmpleado" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="tipoFormato" ColumnName="tipoFormato" DataSourceName="DBrecursosHumanos.dbo.Formatos" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@tipoFormato" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="tipoFormato" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="tipoVacacionesoPermisos" ColumnName="tipoVacacionesoPermisos" DataSourceName="DBrecursosHumanos.dbo.Formatos" DataTypeServer="varchar(30)" DbType="AnsiString" Direction="Input" ParameterName="@tipoVacacionesoPermisos" Precision="0" ProviderType="VarChar" Scale="0" Size="30" SourceColumn="tipoVacacionesoPermisos" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="Remunerado" ColumnName="Remunerado" DataSourceName="DBrecursosHumanos.dbo.Formatos" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Remunerado" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Remunerado" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="fechaI" ColumnName="fechaI" DataSourceName="DBrecursosHumanos.dbo.Formatos" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@fechaI" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="fechaI" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="horaI" ColumnName="horaI" DataSourceName="DBrecursosHumanos.dbo.Formatos" DataTypeServer="time" DbType="AnsiString" Direction="Input" ParameterName="@horaI" Precision="0" ProviderType="Time" Scale="0" Size="5" SourceColumn="horaI" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="fechaF" ColumnName="fechaF" DataSourceName="DBrecursosHumanos.dbo.Formatos" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@fechaF" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="fechaF" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="horaF" ColumnName="horaF" DataSourceName="DBrecursosHumanos.dbo.Formatos" DataTypeServer="time" DbType="AnsiString" Direction="Input" ParameterName="@horaF" Precision="0" ProviderType="Time" Scale="0" Size="5" SourceColumn="horaF" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="fechaI" ColumnName="fechaI" DataSourceName="DBrecursosHumanos.dbo.Formatos" DataTypeServer="varchar(20)" DbType="AnsiString" Direction="Input" ParameterName="@fechaI" Precision="0" ProviderType="VarChar" Scale="0" Size="20" SourceColumn="fechaI" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="horaI" ColumnName="horaI" DataSourceName="DBrecursosHumanos.dbo.Formatos" DataTypeServer="varchar(20)" DbType="AnsiString" Direction="Input" ParameterName="@horaI" Precision="0" ProviderType="VarChar" Scale="0" Size="20" SourceColumn="horaI" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="fechaF" ColumnName="fechaF" DataSourceName="DBrecursosHumanos.dbo.Formatos" DataTypeServer="varchar(20)" DbType="AnsiString" Direction="Input" ParameterName="@fechaF" Precision="0" ProviderType="VarChar" Scale="0" Size="20" SourceColumn="fechaF" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="horaF" ColumnName="horaF" DataSourceName="DBrecursosHumanos.dbo.Formatos" DataTypeServer="varchar(20)" DbType="AnsiString" Direction="Input" ParameterName="@horaF" Precision="0" ProviderType="VarChar" Scale="0" Size="20" SourceColumn="horaF" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="Motivo" ColumnName="Motivo" DataSourceName="DBrecursosHumanos.dbo.Formatos" DataTypeServer="varchar(500)" DbType="AnsiString" Direction="Input" ParameterName="@Motivo" Precision="0" ProviderType="VarChar" Scale="0" Size="500" SourceColumn="Motivo" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="fechaAdicion_I" ColumnName="fechaAdicion_I" DataSourceName="DBrecursosHumanos.dbo.Formatos" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@fechaAdicion_I" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="fechaAdicion_I" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="horaAdicion_I" ColumnName="horaAdicion_I" DataSourceName="DBrecursosHumanos.dbo.Formatos" DataTypeServer="time" DbType="AnsiString" Direction="Input" ParameterName="@horaAdicion_I" Precision="0" ProviderType="Time" Scale="0" Size="5" SourceColumn="horaAdicion_I" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="fechaAdicion_F" ColumnName="fechaAdicion_F" DataSourceName="DBrecursosHumanos.dbo.Formatos" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@fechaAdicion_F" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="fechaAdicion_F" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="horaAdicion_F" ColumnName="horaAdicion_F" DataSourceName="DBrecursosHumanos.dbo.Formatos" DataTypeServer="time" DbType="AnsiString" Direction="Input" ParameterName="@horaAdicion_F" Precision="0" ProviderType="Time" Scale="0" Size="5" SourceColumn="horaAdicion_F" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="fechaAdicion_I" ColumnName="fechaAdicion_I" DataSourceName="DBrecursosHumanos.dbo.Formatos" DataTypeServer="varchar(20)" DbType="AnsiString" Direction="Input" ParameterName="@fechaAdicion_I" Precision="0" ProviderType="VarChar" Scale="0" Size="20" SourceColumn="fechaAdicion_I" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="horaAdicion_I" ColumnName="horaAdicion_I" DataSourceName="DBrecursosHumanos.dbo.Formatos" DataTypeServer="varchar(20)" DbType="AnsiString" Direction="Input" ParameterName="@horaAdicion_I" Precision="0" ProviderType="VarChar" Scale="0" Size="20" SourceColumn="horaAdicion_I" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="fechaAdicion_F" ColumnName="fechaAdicion_F" DataSourceName="DBrecursosHumanos.dbo.Formatos" DataTypeServer="varchar(20)" DbType="AnsiString" Direction="Input" ParameterName="@fechaAdicion_F" Precision="0" ProviderType="VarChar" Scale="0" Size="20" SourceColumn="fechaAdicion_F" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="horaAdicion_F" ColumnName="horaAdicion_F" DataSourceName="DBrecursosHumanos.dbo.Formatos" DataTypeServer="varchar(20)" DbType="AnsiString" Direction="Input" ParameterName="@horaAdicion_F" Precision="0" ProviderType="VarChar" Scale="0" Size="20" SourceColumn="horaAdicion_F" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="tipoCertificado" ColumnName="tipoCertificado" DataSourceName="DBrecursosHumanos.dbo.Formatos" DataTypeServer="varchar(80)" DbType="AnsiString" Direction="Input" ParameterName="@tipoCertificado" Precision="0" ProviderType="VarChar" Scale="0" Size="80" SourceColumn="tipoCertificado" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
@@ -140,7 +143,7 @@ VALUES        (@fechaSolicitud,@numDocEmpleado,@tipoFormato,@tipoVacacionesoPerm
   <xs:element name="DBrecursosHumanosDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DBrecursosHumanosDataSet" msprop:Generator_UserDSName="DBrecursosHumanosDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="empleado" msprop:Generator_TableClassName="empleadoDataTable" msprop:Generator_TableVarName="tableempleado" msprop:Generator_RowChangedName="empleadoRowChanged" msprop:Generator_TablePropName="empleado" msprop:Generator_RowDeletingName="empleadoRowDeleting" msprop:Generator_RowChangingName="empleadoRowChanging" msprop:Generator_RowEvHandlerName="empleadoRowChangeEventHandler" msprop:Generator_RowDeletedName="empleadoRowDeleted" msprop:Generator_RowClassName="empleadoRow" msprop:Generator_UserTableName="empleado" msprop:Generator_RowEvArgName="empleadoRowChangeEvent">
+        <xs:element name="empleado" msprop:Generator_TableClassName="empleadoDataTable" msprop:Generator_TableVarName="tableempleado" msprop:Generator_TablePropName="empleado" msprop:Generator_RowDeletingName="empleadoRowDeleting" msprop:Generator_RowChangingName="empleadoRowChanging" msprop:Generator_RowEvHandlerName="empleadoRowChangeEventHandler" msprop:Generator_RowDeletedName="empleadoRowDeleted" msprop:Generator_UserTableName="empleado" msprop:Generator_RowChangedName="empleadoRowChanged" msprop:Generator_RowEvArgName="empleadoRowChangeEvent" msprop:Generator_RowClassName="empleadoRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="primerNom" msprop:Generator_ColumnVarNameInTable="columnprimerNom" msprop:Generator_ColumnPropNameInRow="primerNom" msprop:Generator_ColumnPropNameInTable="primerNomColumn" msprop:Generator_UserColumnName="primerNom" minOccurs="0">
@@ -273,7 +276,13 @@ VALUES        (@fechaSolicitud,@numDocEmpleado,@tipoFormato,@tipoVacacionesoPerm
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="fechaSolicitud" msprop:Generator_ColumnVarNameInTable="columnfechaSolicitud" msprop:Generator_ColumnPropNameInRow="fechaSolicitud" msprop:Generator_ColumnPropNameInTable="fechaSolicitudColumn" msprop:Generator_UserColumnName="fechaSolicitud" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fechaSolicitud" msprop:Generator_ColumnVarNameInTable="columnfechaSolicitud" msprop:Generator_ColumnPropNameInRow="fechaSolicitud" msprop:Generator_ColumnPropNameInTable="fechaSolicitudColumn" msprop:Generator_UserColumnName="fechaSolicitud" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="numDocEmpleado" msprop:Generator_ColumnVarNameInTable="columnnumDocEmpleado" msprop:Generator_ColumnPropNameInRow="numDocEmpleado" msprop:Generator_ColumnPropNameInTable="numDocEmpleadoColumn" msprop:Generator_UserColumnName="numDocEmpleado" type="xs:int" minOccurs="0" />
               <xs:element name="tipoFormato" msprop:Generator_ColumnVarNameInTable="columntipoFormato" msprop:Generator_ColumnPropNameInRow="tipoFormato" msprop:Generator_ColumnPropNameInTable="tipoFormatoColumn" msprop:Generator_UserColumnName="tipoFormato" type="xs:int" minOccurs="0" />
               <xs:element name="tipoVacacionesoPermisos" msprop:Generator_ColumnVarNameInTable="columntipoVacacionesoPermisos" msprop:Generator_ColumnPropNameInRow="tipoVacacionesoPermisos" msprop:Generator_ColumnPropNameInTable="tipoVacacionesoPermisosColumn" msprop:Generator_UserColumnName="tipoVacacionesoPermisos" minOccurs="0">
@@ -284,10 +293,34 @@ VALUES        (@fechaSolicitud,@numDocEmpleado,@tipoFormato,@tipoVacacionesoPerm
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Remunerado" msprop:Generator_ColumnVarNameInTable="columnRemunerado" msprop:Generator_ColumnPropNameInRow="Remunerado" msprop:Generator_ColumnPropNameInTable="RemuneradoColumn" msprop:Generator_UserColumnName="Remunerado" type="xs:int" minOccurs="0" />
-              <xs:element name="fechaI" msprop:Generator_ColumnVarNameInTable="columnfechaI" msprop:Generator_ColumnPropNameInRow="fechaI" msprop:Generator_ColumnPropNameInTable="fechaIColumn" msprop:Generator_UserColumnName="fechaI" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="horaI" msprop:Generator_ColumnVarNameInTable="columnhoraI" msprop:Generator_ColumnPropNameInRow="horaI" msprop:Generator_ColumnPropNameInTable="horaIColumn" msprop:Generator_UserColumnName="horaI" type="xs:duration" minOccurs="0" />
-              <xs:element name="fechaF" msprop:Generator_ColumnVarNameInTable="columnfechaF" msprop:Generator_ColumnPropNameInRow="fechaF" msprop:Generator_ColumnPropNameInTable="fechaFColumn" msprop:Generator_UserColumnName="fechaF" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="horaF" msprop:Generator_ColumnVarNameInTable="columnhoraF" msprop:Generator_ColumnPropNameInRow="horaF" msprop:Generator_ColumnPropNameInTable="horaFColumn" msprop:Generator_UserColumnName="horaF" type="xs:duration" minOccurs="0" />
+              <xs:element name="fechaI" msprop:Generator_ColumnVarNameInTable="columnfechaI" msprop:Generator_ColumnPropNameInRow="fechaI" msprop:Generator_ColumnPropNameInTable="fechaIColumn" msprop:Generator_UserColumnName="fechaI" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="horaI" msprop:Generator_ColumnVarNameInTable="columnhoraI" msprop:Generator_ColumnPropNameInRow="horaI" msprop:Generator_ColumnPropNameInTable="horaIColumn" msprop:Generator_UserColumnName="horaI" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fechaF" msprop:Generator_ColumnVarNameInTable="columnfechaF" msprop:Generator_ColumnPropNameInRow="fechaF" msprop:Generator_ColumnPropNameInTable="fechaFColumn" msprop:Generator_UserColumnName="fechaF" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="horaF" msprop:Generator_ColumnVarNameInTable="columnhoraF" msprop:Generator_ColumnPropNameInRow="horaF" msprop:Generator_ColumnPropNameInTable="horaFColumn" msprop:Generator_UserColumnName="horaF" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="Motivo" msprop:Generator_ColumnVarNameInTable="columnMotivo" msprop:Generator_ColumnPropNameInRow="Motivo" msprop:Generator_ColumnPropNameInTable="MotivoColumn" msprop:Generator_UserColumnName="Motivo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -295,14 +328,31 @@ VALUES        (@fechaSolicitud,@numDocEmpleado,@tipoFormato,@tipoVacacionesoPerm
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="fechaAdicion_I" msprop:Generator_ColumnVarNameInTable="columnfechaAdicion_I" msprop:Generator_ColumnPropNameInRow="fechaAdicion_I" msprop:Generator_ColumnPropNameInTable="fechaAdicion_IColumn" msprop:Generator_UserColumnName="fechaAdicion_I" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="horaAdicion_I" msprop:Generator_ColumnVarNameInTable="columnhoraAdicion_I" msprop:Generator_ColumnPropNameInRow="horaAdicion_I" msprop:Generator_ColumnPropNameInTable="horaAdicion_IColumn" msprop:Generator_UserColumnName="horaAdicion_I" type="xs:duration" minOccurs="0" />
-              <xs:element name="fechaAdicion_F" msprop:Generator_ColumnVarNameInTable="columnfechaAdicion_F" msprop:Generator_ColumnPropNameInRow="fechaAdicion_F" msprop:Generator_ColumnPropNameInTable="fechaAdicion_FColumn" msprop:Generator_UserColumnName="fechaAdicion_F" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="horaAdicion_F" msprop:Generator_ColumnVarNameInTable="columnhoraAdicion_F" msprop:Generator_ColumnPropNameInRow="horaAdicion_F" msprop:Generator_ColumnPropNameInTable="horaAdicion_FColumn" msprop:Generator_UserColumnName="horaAdicion_F" type="xs:duration" minOccurs="0" />
-              <xs:element name="tipoCertificado" msprop:Generator_ColumnVarNameInTable="columntipoCertificado" msprop:Generator_ColumnPropNameInRow="tipoCertificado" msprop:Generator_ColumnPropNameInTable="tipoCertificadoColumn" msprop:Generator_UserColumnName="tipoCertificado" minOccurs="0">
+              <xs:element name="fechaAdicion_I" msprop:Generator_ColumnVarNameInTable="columnfechaAdicion_I" msprop:Generator_ColumnPropNameInRow="fechaAdicion_I" msprop:Generator_ColumnPropNameInTable="fechaAdicion_IColumn" msprop:Generator_UserColumnName="fechaAdicion_I" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="80" />
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="horaAdicion_I" msprop:Generator_ColumnVarNameInTable="columnhoraAdicion_I" msprop:Generator_ColumnPropNameInRow="horaAdicion_I" msprop:Generator_ColumnPropNameInTable="horaAdicion_IColumn" msprop:Generator_UserColumnName="horaAdicion_I" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fechaAdicion_F" msprop:Generator_ColumnVarNameInTable="columnfechaAdicion_F" msprop:Generator_ColumnPropNameInRow="fechaAdicion_F" msprop:Generator_ColumnPropNameInTable="fechaAdicion_FColumn" msprop:Generator_UserColumnName="fechaAdicion_F" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="horaAdicion_F" msprop:Generator_ColumnVarNameInTable="columnhoraAdicion_F" msprop:Generator_ColumnPropNameInRow="horaAdicion_F" msprop:Generator_ColumnPropNameInTable="horaAdicion_FColumn" msprop:Generator_UserColumnName="horaAdicion_F" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -319,6 +369,13 @@ VALUES        (@fechaSolicitud,@numDocEmpleado,@tipoFormato,@tipoVacacionesoPerm
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tipoCertificado" msprop:Generator_ColumnVarNameInTable="columntipoCertificado" msprop:Generator_ColumnPropNameInRow="tipoCertificado" msprop:Generator_ColumnPropNameInTable="tipoCertificadoColumn" msprop:Generator_UserColumnName="tipoCertificado" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

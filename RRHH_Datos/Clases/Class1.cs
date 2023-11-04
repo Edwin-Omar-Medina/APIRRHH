@@ -18,18 +18,17 @@ namespace RRHH_Datos.Clases
 
                 DataSet.DBrecursosHumanosDataSet data = new DataSet.DBrecursosHumanosDataSet();
                 DataSet.DBrecursosHumanosDataSetTableAdapters.empleadoTableAdapter ad = new DataSet.DBrecursosHumanosDataSetTableAdapters.empleadoTableAdapter();
-                DataSet.DBrecursosHumanosDataSet.empleadoDataTable info = new DataSet.DBrecursosHumanosDataSet.empleadoDataTable();
-
                 string aBase64 = "";
-                int IdSolicitud = ad.FillByMaxID(info) + 1;
+                int IdSolicitud = Convert.ToInt32(ad.FillByMaxID()) + 1;
                 //ad.InsertFormatos(fechaSolicitud, numDocEmpleado, tipoFormato, tipoVacacionesoPermisos, Remunerado, fechaI, horaI, fechaF, horaF, Motivo, fechaAdicion_I, horaAdicion_I, fechaAdicion_F, horaAdicion_F, tipoCertificado);
 
                 switch (tipoFormato)
                 {
                     case 1: //PERMISOS
                         ad.InsertFormatos(fechaSolicitud, numDocEmpleado, 1, tipoVacacionesoPermisos, Remunerado, fechaI, horaI, fechaF, horaF, Motivo, "", "", "", "", "");
-                        ad.FillByFormatos(info, IdSolicitud);
+                        ad.FillByFormatos(data.empleado, IdSolicitud);
                         REPORTES.FormatoPermisos rpt_permisos = new REPORTES.FormatoPermisos();
+
                         rpt_permisos.SetDataSource(data);
                         Stream s = rpt_permisos.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
                         MemoryStream ms = new MemoryStream();
