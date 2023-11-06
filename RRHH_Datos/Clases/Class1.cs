@@ -39,7 +39,7 @@ namespace RRHH_Datos.Clases
 
                     case 2://COMPENSATORIOS
                         ad.InsertFormatos(fechaSolicitud, numDocEmpleado, 2, "", 0, fechaI, horaI, fechaF, horaF, Motivo, fechaAdicion_I, horaAdicion_I, fechaAdicion_F, horaAdicion_F, "");
-                        ad.FillByFormatos(info, IdSolicitud);
+                        ad.FillByFormatos(data.empleado, IdSolicitud);
                         REPORTES.FormatoCompensatorios rpt_compensatorios = new REPORTES.FormatoCompensatorios();
                         rpt_compensatorios.SetDataSource(data);
                         Stream s2 = rpt_compensatorios.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
@@ -51,7 +51,7 @@ namespace RRHH_Datos.Clases
                         break;
                     case 3://VACACIONES
                         ad.InsertFormatos(fechaSolicitud, numDocEmpleado, 3, tipoVacacionesoPermisos, Remunerado, fechaI, horaI, fechaF, horaF, Motivo, "", "", "", "", "");
-                        ad.FillByFormatos(info, IdSolicitud);
+                        ad.FillByFormatos(data.empleado, IdSolicitud);
                         REPORTES.FormatoVacaciones rpt_vacaciones = new REPORTES.FormatoVacaciones();
                         rpt_vacaciones.SetDataSource(data);
                         Stream s3 = rpt_vacaciones.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
@@ -62,7 +62,7 @@ namespace RRHH_Datos.Clases
                         break;
                     case 4://CERTIFICADOS
                         ad.InsertFormatos(fechaSolicitud, numDocEmpleado, 4, "", 0, "", "", "", "", Motivo, "", "", "", "", tipoCertificado);
-                        ad.FillByFormatos(info, IdSolicitud);
+                        ad.FillByFormatos(data.empleado, IdSolicitud);
                         REPORTES.FormatoCertificados rpt_certificados = new REPORTES.FormatoCertificados();
                         rpt_certificados.SetDataSource(data);
                         Stream s4 = rpt_certificados.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
