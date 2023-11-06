@@ -15,7 +15,7 @@ namespace RRHH_Datos.Clases
 
             try
             {
-
+                
                 DataSet.DBrecursosHumanosDataSet data = new DataSet.DBrecursosHumanosDataSet();
                 DataSet.DBrecursosHumanosDataSetTableAdapters.empleadoTableAdapter ad = new DataSet.DBrecursosHumanosDataSetTableAdapters.empleadoTableAdapter();
                 string aBase64 = "";

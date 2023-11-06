@@ -17,5 +17,8 @@ namespace RRHH_WEB.Controllers
             return RRHH_Datos.Clases.Class1.rpt_Formatos( fechaSolicitud, numDocEmpleado, tipoFormato,  tipoVacacionesoPermisos, Remunerado,  fechaI,  horaI,  fechaF,  horaF,  Motivo,  fechaAdicion_I,  horaAdicion_I,  fechaAdicion_F,  horaAdicion_F,  tipoCertificado);
             
         }
+
     }
+
+
 }
