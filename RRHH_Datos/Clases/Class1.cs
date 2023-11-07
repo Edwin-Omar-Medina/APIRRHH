@@ -50,7 +50,7 @@ namespace RRHH_Datos.Clases
 
                         break;
                     case 3://VACACIONES
-                        ad.InsertFormatos(fechaSolicitud, numDocEmpleado, 3, tipoVacacionesoPermisos, Remunerado, fechaI, horaI, fechaF, horaF, Motivo, "", "", "", "", "");
+                        ad.InsertFormatos(fechaSolicitud, numDocEmpleado, 3, tipoVacacionesoPermisos, 0, fechaI, horaI, fechaF, horaF, Motivo, "", "", "", "", "");
                         ad.FillByFormatos(data.empleado, IdSolicitud);
                         REPORTES.FormatoVacaciones rpt_vacaciones = new REPORTES.FormatoVacaciones();
                         rpt_vacaciones.SetDataSource(data);
